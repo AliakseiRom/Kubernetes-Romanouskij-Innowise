@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-db
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: payment-db
+
+  template:
+    metadata:
+      labels:
+        app: payment-db
+
+    spec:
+      containers:
+        - name: payment-db
+
+          image: postgres:17
+
+          ports:
+            - containerPort: 5432
+
+          env:
+            - name: POSTGRES_DB
+              value: payment_service
+
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: PAYMENT_DB_USERNAME
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: PAYMENT_DB_PASSWORD

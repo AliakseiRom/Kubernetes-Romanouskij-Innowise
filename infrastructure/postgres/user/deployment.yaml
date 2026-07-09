@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-db
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: user-db
+
+  template:
+    metadata:
+      labels:
+        app: user-db
+
+    spec:
+      containers:
+        - name: postgres
+
+          image: postgres:17
+
+          ports:
+            - containerPort: 5432
+
+          env:
+            - name: POSTGRES_DB
+              value: user_service
+
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: USER_DB_USERNAME
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: USER_DB_PASSWORD
