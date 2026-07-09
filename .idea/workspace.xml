@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4e51dd08-210f-43d2-9381-430456861bb8" name="Changes" comment="reconfigure .gitignore" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AliakseiRom&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:AliakseiRom/Kubernetes-Romanouskij-Innowise.git&quot;,
+    &quot;accountId&quot;: &quot;76322bff-cd74-43d7-ad9f-513d7d5240cf&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3G7uL9jB7xpXeg2SINkQjLJ9ymL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/k8s",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e51dd08-210f-43d2-9381-430456861bb8" name="Changes" comment="" />
+      <created>1783334871919</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1783334871919</updated>
+      <workItem from="1783334872992" duration="3679000" />
+      <workItem from="1783503137730" duration="4941000" />
+      <workItem from="1783593035422" duration="9988000" />
+    </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <option name="closed" value="true" />
+      <created>1783335083024</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1783335083024</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add Kubernetes manifests for full microservices deployment&#10;&#10;Application Deployments:&#10;- Add deployments and services for all microservices (api-gateway, auth, user, order, payment)&#10;- Configure resource requests and limits for each service&#10;- Set up startup, readiness, and liveness probes for all services&#10;- Use initContainers to wait for database readiness&#10;&#10;Infrastructure:&#10;- Add PostgreSQL deployments for each service (auth-db, user-db, order-db, payment-db)&#10;- Add Kafka deployment with KRaft mode configuration&#10;- Add Redis deployment for caching&#10;&#10;Configuration:&#10;- Create ConfigMap with environment variables for all services&#10;- Create Secret for sensitive data (database credentials, JWT secret)&#10;- Add .gitignore for secrets.yaml&#10;- Provide secrets.example.yaml template&#10;&#10;Ingress:&#10;- Add Ingress configuration with nginx rewrite rules&#10;- Configure routing for api-gateway&#10;&#10;Security:&#10;- Use Kubernetes Secrets for sensitive data&#10;- Separate ConfigMap for non-sensitive configuration&#10;- Use secretKeyRef and configMapKeyRef in deployments">
+      <option name="closed" value="true" />
+      <created>1783617308811</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1783617308811</updated>
+    </task>
+    <task id="LOCAL-00003" summary="reconfigure .gitignore">
+      <option name="closed" value="true" />
+      <created>1783617458879</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1783617458879</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <MESSAGE value="Add Kubernetes manifests for full microservices deployment&#10;&#10;Application Deployments:&#10;- Add deployments and services for all microservices (api-gateway, auth, user, order, payment)&#10;- Configure resource requests and limits for each service&#10;- Set up startup, readiness, and liveness probes for all services&#10;- Use initContainers to wait for database readiness&#10;&#10;Infrastructure:&#10;- Add PostgreSQL deployments for each service (auth-db, user-db, order-db, payment-db)&#10;- Add Kafka deployment with KRaft mode configuration&#10;- Add Redis deployment for caching&#10;&#10;Configuration:&#10;- Create ConfigMap with environment variables for all services&#10;- Create Secret for sensitive data (database credentials, JWT secret)&#10;- Add .gitignore for secrets.yaml&#10;- Provide secrets.example.yaml template&#10;&#10;Ingress:&#10;- Add Ingress configuration with nginx rewrite rules&#10;- Configure routing for api-gateway&#10;&#10;Security:&#10;- Use Kubernetes Secrets for sensitive data&#10;- Separate ConfigMap for non-sensitive configuration&#10;- Use secretKeyRef and configMapKeyRef in deployments" />
+    <MESSAGE value="reconfigure .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="reconfigure .gitignore" />
+  </component>
+</project>
