@@ -1,0 +1,131 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: payment-service
+
+  template:
+    metadata:
+      labels:
+        app: payment-service
+
+    spec:
+      initContainers:
+        - name: wait-for-postgres
+          image: postgres:17
+          command:
+            - sh
+            - -c
+            - |
+              until pg_isready -h payment-db -p 5432 -U payment_service_app; do
+                echo "Waiting for postgres..."
+                sleep 2
+              done
+
+      containers:
+        - name: payment-service
+          image: payment-service:latest
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 8086
+
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: SPRING_PROFILES_ACTIVE
+
+            - name: DB_NAME
+              value: payment_service
+
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: PAYMENT_DB_URL
+
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: PAYMENT_DB_USERNAME
+
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: PAYMENT_DB_PASSWORD
+
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: KAFKA
+
+            - name: KAFKA_BOOTSTRAP_SERVERS_POSTGRES
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: KAFKA_POSTGRES
+
+            - name: SERVER_PORT
+              value: "8086"
+
+            - name: RANDOM_NUMBER_SERVICE_URL
+              value: https://www.randomnumberapi.com/api/v1.0/random
+
+            - name: POSTGRES_DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: PAYMENT_DB_URL
+
+            - name: POSTGRES_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: POSTGRES_NAME
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: POSTGRES_PASSWORD
+
+          resources:
+            requests:
+              cpu: "300m"
+              memory: "512Mi"
+            limits:
+              cpu: "800m"
+              memory: "768Mi"
+
+          startupProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8086
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 30
+
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8086
+            periodSeconds: 5
+            failureThreshold: 3
+
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8086
+            periodSeconds: 10
+            failureThreshold: 3
