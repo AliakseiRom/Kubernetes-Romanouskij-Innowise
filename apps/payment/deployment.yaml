@@ -86,13 +86,19 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: app-config
-                  key: PAYMENT_DB_URLe
+                  key: PAYMENT_DB_URL
 
             - name: POSTGRES_USERNAME
-              value: postgres
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: POSTGRES_NAME
 
             - name: POSTGRES_PASSWORD
-              value: postgres
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: POSTGRES_PASSWORD
 
           resources:
             requests:

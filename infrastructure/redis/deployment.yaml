@@ -23,3 +23,15 @@ spec:
 
           ports:
             - containerPort: 6379
+
+          readinessProbe:
+            exec:
+              command:
+                - redis-cli
+                - ping
+
+          livenessProbe:
+            exec:
+              command:
+                - redis-cli
+                - ping

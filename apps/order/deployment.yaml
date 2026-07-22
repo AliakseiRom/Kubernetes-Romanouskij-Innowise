@@ -60,7 +60,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: app-secret
-                  key: AUTH_DB_PASSWORD
+                  key: ORDER_DB_PASSWORD
 
             - name: KAFKA_BOOTSTRAP_SERVERS
               valueFrom:
